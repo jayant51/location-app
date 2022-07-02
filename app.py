@@ -1,9 +1,9 @@
-from flask import Flask, jsonify
-from flask_restful import Resource, Api
-from flask_cors import CORS
-import urllib.parse
-import os
-import urllib.request
+#from flask import Flask, jsonify
+#from flask_restful import Resource, Api
+#from flask_cors import CORS
+#import urllib.parse
+#import os
+#import urllib.request
   
 # creating the flask app
 app = Flask(__name__)
