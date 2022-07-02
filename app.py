@@ -9,6 +9,10 @@ app = flask.Flask(__name__)
 api = flask_restful.Api(app)
 address = 'Washington DC'
 
+class test(flask_restful.Resource):
+    def get(self):
+        return {"test": "location of test"}
+
 class init(flask_restful.Resource):
     def get(self):
         return {"init": "location of " + address}
@@ -30,6 +34,7 @@ class location(flask_restful.Resource):
         return jsonify(firstname=firstname, lastname=lastname)
 
 api.add_resource(init, '/')
+api.add_resource(test, '/test')
 api.add_resource(location, '/location')
 
 if __name__ == '__main__':

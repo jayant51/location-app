@@ -5,10 +5,25 @@ info:
   description: location-service
   x-ibm-name: location-service
 paths:
+  /test:
+    get:
+      description: location-service app
+      operationId: test
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Not Found"
   /location:
     get:
       description: location-service app
-      operationId: init
+      operationId: location
       consumes:
       - "application/json"
       produces:
