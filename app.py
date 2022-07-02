@@ -32,7 +32,7 @@ class Location(Resource):
         wresponse += "\nlongitude = " + response[0]["lon"]
         return jsonify({'data': wresponse}), 201
   
-api.add_resource(Init, '/init')
+api.add_resource(Init, '/')
 api.add_resource(Location, '/getlocation')
 
 
