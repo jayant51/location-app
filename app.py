@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api 
+import jsons
 from flask_cors import CORS
 import urllib.parse
 import urllib.request
@@ -27,7 +28,9 @@ class location(Resource):
 
         x = urllib.request.urlopen(returnurl)
         print(x)
-        response = urllib.request.urlopen(returnurl).json()
+        response = urllib.request.urlopen(returnurl)
+        data = jsons.loads(response.read().decode(response.info().get_param('charset') ))
+        print(data)
         wresponse += address
         wresponse += "Lattitude = " + response[0]["lat"]
         wresponse += "\nlongitude = " + response[0]["lon"]
