@@ -7,15 +7,14 @@ import os
 
 app = flask.Flask(__name__)
 api = flask_restful.Api(app)
-
+address = 'Washington DC'
 
 class init(flask_restful.Resource):
     def get(self):
-        return {"init": "location"}
+        return {"init": "location of " + address}
 
 class location(flask_restful.Resource):
     def get(self):
-        address = 'Washington DC'
         returnurl = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
         response = urllib.request.urlopen(returnurl)
         data = jsons.loads(response.read().decode(response.info().get_param('charset') ))
