@@ -1,13 +1,28 @@
 swagger: '2.0'
 info:
-  title: weather-service
+  title: location-service
   version: 0.0.1
-  description: weather-service
-  x-ibm-name: weather-service
+  description: location-service
+  x-ibm-name: location-service
 paths:
-  /init:
+  /location:
     get:
-      description: weather-service  app
+      description: location-service app
+      operationId: init
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Not Found"
+  /:
+    get:
+      description: location-service app
       operationId: init
       consumes:
       - "application/json"
@@ -21,7 +36,7 @@ paths:
         "404":
           description: "Not Found"
     post:
-      description: weather-service  app
+      description: location-service app
       operationId: create
       consumes:
       - "application/text"
@@ -30,19 +45,9 @@ paths:
       responses:
         "200":
           description: "Success"
-  /weather:
-    get:
-      operationId: weather
-      responses:
-        '200':
-          description: The operation was successful.
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      description: List weather-service
 schemes:
   - http
+  - https
 x-ibm-configuration:
   type: rest
   phase: realized
@@ -50,5 +55,5 @@ x-ibm-configuration:
   testable: true
   cors:
     enabled: true
-host: weather-service-orders-git-openshift.itzroks-663002b1mb-xbphnt-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud
+host: location-app-git-openshift.itzroks-663002b1mb-xbphnt-6ccd7f378ae819553d37d5f2ee142bd6-0000.us-south.containers.appdomain.cloud
 
