@@ -7,7 +7,7 @@ import jsons
 app = flask.Flask(__name__)
 api = flask_restful.Api(app)
 
-class HelloWorld(flask_restful.Resource):
+class location(flask_restful.Resource):
     def get(self):
         address = 'Washington DC'
         returnurl = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
@@ -18,13 +18,7 @@ class HelloWorld(flask_restful.Resource):
 
         return {address: wresponse}
 
-    def post(self):
-        json_data = request.get_json(force=True)
-        firstname = json_data['firstname']
-        lastname = json_data['lastname']
-        return jsonify(firstname=firstname, lastname=lastname)
-
-api.add_resource(HelloWorld, '/')
+api.add_resource(location, '/')
 
 if __name__ == "__main__":
     app.run(debug=True)
