@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api
 from flask_cors import CORS
-import requests
+import urllib.request
 import urllib.parse
 import os
 
@@ -26,7 +26,7 @@ class Location(Resource):
         wresponse="Location- Service\n"
         returnurl = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
 
-        response = requests.get(returnurl).json()
+        response = request.get(returnurl).json()
         wresponse += address
         wresponse += "Lattitude = " + response[0]["lat"]
         wresponse += "\nlongitude = " + response[0]["lon"]
