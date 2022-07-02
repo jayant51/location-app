@@ -1,4 +1,5 @@
-FROM quay.io/devfile/python:slim
+#FROM quay.io/devfile/python:slim
+FROM alpine:3.7
 
 # By default, listen on port 8081
 EXPOSE 8081/tcp
