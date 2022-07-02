@@ -8,6 +8,7 @@ ENV FLASK_PORT=8081
 # Set the working directory in the container
 WORKDIR /projects
 
+RUN pip3 install --no-cache-dir -r requirements.txt
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
 
@@ -16,7 +17,7 @@ COPY requirements.txt .
 #RUN apt-get update && apt-get install -y python-pip
 # Install any dependencies
 #RUN pip install -r requirements.txt
-RUN pip3 install --no-cache-dir -r requirements.txt
+
 
 # Copy the content of the local src directory to the working directory
 COPY . .
