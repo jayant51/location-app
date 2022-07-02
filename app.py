@@ -27,7 +27,7 @@ class location(Resource):
 
         x = urllib.request.urlopen(returnurl)
         print(x)
-        response = urllib.request.get(returnurl).json()
+        response = urllib.request(returnurl).json()
         wresponse += address
         wresponse += "Lattitude = " + response[0]["lat"]
         wresponse += "\nlongitude = " + response[0]["lon"]
