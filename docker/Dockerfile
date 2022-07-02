@@ -11,7 +11,7 @@ WORKDIR /projects
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
 
-RUN apk add --update rh-python36
+RUN apk add --update python36
 
 RUN pip3 install --upgrade pip
 
