@@ -10,7 +10,10 @@ WORKDIR /projects
 
 # Copy the dependencies file to the working directory
 COPY requirements.txt .
+RUN yum -y install rh-python36
+RUN pip3 install --upgrade pip
 
+RUN apt-get update && apt-get install -y python-pip
 # Install any dependencies
 #RUN pip install -r requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
