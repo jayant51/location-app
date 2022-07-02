@@ -26,6 +26,7 @@ class location(Resource):
         returnurl = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
 
         x = urllib.request.urlopen(returnurl)
+        print(x)
         response = request.get(returnurl).json()
         wresponse += address
         wresponse += "Lattitude = " + response[0]["lat"]
