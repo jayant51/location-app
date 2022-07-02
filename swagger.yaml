@@ -35,7 +35,7 @@ paths:
           description: "Invalid input"
         "404":
           description: "Not Found"
-  /:
+  /init:
     get:
       description: location-service app
       operationId: init

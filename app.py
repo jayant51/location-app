@@ -33,7 +33,7 @@ class location(flask_restful.Resource):
         lastname = json_data['lastname']
         return jsonify(firstname=firstname, lastname=lastname)
 
-api.add_resource(init, '/')
+api.add_resource(init, '/init')
 api.add_resource(test, '/test')
 api.add_resource(location, '/location')
 
