@@ -11,7 +11,7 @@ CORS(app)
 # creating an API object
 api = Api(app)
   
-class Init(Resource):  
+class init(Resource):  
     def get(self):
         return('Location Api init')
 
@@ -19,7 +19,7 @@ class Init(Resource):
 # the get, post methods correspond to get and post requests
 # they are automatically mapped by flask_restful.
 # other methods include put, delete, etc.
-class Location(Resource):
+class location(Resource):
     def get(self):
         address = 'Washington DC\n'
         wresponse="Location- Service\n"
@@ -32,8 +32,8 @@ class Location(Resource):
         wresponse += "\nlongitude = " + response[0]["lon"]
         return jsonify({'data': wresponse}), 201
   
-api.add_resource(Init, '/')
-api.add_resource(Location, '/getlocation')
+#api.add_resource(init, '/')
+api.add_resource(location, '/')
 
 
 if __name__ == '__main__':
