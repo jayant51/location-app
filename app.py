@@ -31,10 +31,10 @@ class location(Resource):
         response = urllib.request.urlopen(returnurl)
         data = jsons.loads(response.read().decode(response.info().get_param('charset') ))
         print(data)
-        wresponse += address
-        wresponse += "Lattitude = " + data[0]["lat"]
-        wresponse += "\nlongitude = " + data[0]["lon"]
-        return jsonify({'data': wresponse}), 201
+        #wresponse += address
+        #wresponse += "Lattitude = " + data[0]["lat"]
+        #wresponse += "\nlongitude = " + data[0]["lon"]
+        return jsonify({'data': response}), 201
   
 #api.add_resource(init, '/')
 api.add_resource(location, '/')
