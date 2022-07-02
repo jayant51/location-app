@@ -34,7 +34,7 @@ class location(Resource):
         #wresponse += address
         #wresponse += "Lattitude = " + data[0]["lat"]
         #wresponse += "\nlongitude = " + data[0]["lon"]
-        return jsonify({'data': response}), 201
+        return jsonify({'data': data}), 201
   
 #api.add_resource(init, '/')
 api.add_resource(location, '/')
