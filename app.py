@@ -20,6 +20,7 @@ class init(flask_restful.Resource):
 class location(flask_restful.Resource):
     def get(self):
         returnurl = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
+        print(returnurl)
         response = urllib.request.urlopen(returnurl)
         data = jsons.loads(response.read().decode(response.info().get_param('charset') ))
         wresponse = "Lattitude = " + data[0]["lat"]
