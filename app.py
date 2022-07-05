@@ -1,11 +1,13 @@
-import flask
+from flask import Flask, jsonify, request
 import flask_restful
+from flask_cors import CORS
 import urllib.parse
 import urllib.request
 import jsons
 import os
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
+CORS(app) 
 api = flask_restful.Api(app)
 address = 'Washington DC'
 
@@ -19,6 +21,12 @@ class init(flask_restful.Resource):
 
 class location(flask_restful.Resource):
     def get(self):
+
+        args = request.args
+        address = request.args.get('address', default="Washington DC", type = str)
+       
+
+
         returnurl = 'https://nominatim.openstreetmap.org/search/' + urllib.parse.quote(address) +'?format=json'
         print(returnurl)
         response = urllib.request.urlopen(returnurl)
