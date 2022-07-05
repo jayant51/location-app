@@ -9,7 +9,6 @@ import os
 app = Flask(__name__)
 CORS(app) 
 api = flask_restful.Api(app)
-address = 'Washington DC'
 
 class test(flask_restful.Resource):
     def get(self):
@@ -17,7 +16,7 @@ class test(flask_restful.Resource):
 
 class init(flask_restful.Resource):
     def get(self):
-        return {"init": "location of " + address}
+        return {"init": "location of  address "}
 
 class location(flask_restful.Resource):
     def get(self):
